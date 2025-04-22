@@ -1,7 +1,4 @@
-
-// This file would contain the standard policies data structure
-// In a real implementation, this would be populated from the database or API
-// For now, we'll include a subset of the policies from the images provided
+// Standard policies data structure with comprehensive coverage across all domains
 
 export interface PolicyStructure {
   domain: string;
@@ -67,6 +64,19 @@ export const StandardPolicies: PolicyStructure[] = [
             content: "(a) Implementation of industry-standard security measures including:\n    • Encryption at rest and in transit\n    • Access controls and authentication\n    • Regular security assessments and audits\n    • Incident response procedures\n(b) Employee training on data protection\n(c) Regular updates to security protocols\n(d) Vendor security assessments"
           }
         ]
+      },
+      {
+        title: "Section-3: INTELLECTUAL PROPERTY POLICY",
+        clauses: [
+          {
+            title: "Clause-1: OWNERSHIP OF IP",
+            content: "All intellectual property created by employees during their employment, using company resources, or related to company business belongs to the company. This includes but is not limited to: inventions, designs, code, documentation, processes, methodologies, and trade secrets."
+          },
+          {
+            title: "Clause-2: THIRD-PARTY IP",
+            content: "Employees must respect third-party intellectual property rights. No unauthorized use of copyrighted materials, trademarks, or patented inventions. All necessary licenses and permissions must be obtained before use."
+          }
+        ]
       }
     ]
   },
@@ -102,6 +112,19 @@ export const StandardPolicies: PolicyStructure[] = [
             content: "(a) Prohibited Conduct:\n    • Verbal harassment (slurs, jokes, threats)\n    • Physical harassment\n    • Visual harassment (offensive images)\n    • Sexual harassment\n(b) Reporting Procedures:\n    • Multiple reporting channels available\n    • Protection against retaliation\n    • Confidential investigation process\n(c) Disciplinary Actions:\n    • Up to and including termination\n    • Immediate action for serious violations"
           }
         ]
+      },
+      {
+        title: "Section-3: PERFORMANCE MANAGEMENT",
+        clauses: [
+          {
+            title: "Clause-1: PERFORMANCE REVIEW CYCLE",
+            content: "Regular performance reviews conducted bi-annually. Reviews include: goal setting, competency assessment, development planning, and performance rating. 360-degree feedback collected from peers, supervisors, and direct reports."
+          },
+          {
+            title: "Clause-2: COMPENSATION & BENEFITS",
+            content: "Annual salary reviews based on performance ratings, market conditions, and company performance. Benefits include: health insurance, retirement plans, professional development allowance, and wellness programs."
+          }
+        ]
       }
     ]
   },
@@ -118,6 +141,19 @@ export const StandardPolicies: PolicyStructure[] = [
           {
             title: "Clause-2: CONFLICTS OF INTEREST",
             content: "(a) Definition:\n    • Any situation where personal interests conflict with company duties\n    • Relationships with competitors, suppliers, or customers\n    • Outside business activities\n    • Financial investments in competing businesses\n(b) Disclosure Requirements:\n    • Immediate disclosure to management\n    • Annual conflict of interest declarations\n    • Updates when circumstances change"
+          }
+        ]
+      },
+      {
+        title: "Section-2: ANTI-CORRUPTION AND BRIBERY",
+        clauses: [
+          {
+            title: "Clause-1: PROHIBITED PRACTICES",
+            content: "Zero tolerance for bribery and corruption. Employees must not offer, promise, or accept bribes, kickbacks, or improper payments. This applies to dealings with public officials, private sector partners, and any other stakeholders."
+          },
+          {
+            title: "Clause-2: GIFT AND ENTERTAINMENT POLICY",
+            content: "Gifts and entertainment must be reasonable, appropriate, and in line with local customs and laws. Must not influence or appear to influence business decisions. All gifts above $100 must be reported to compliance."
           }
         ]
       }
@@ -151,6 +187,19 @@ export const StandardPolicies: PolicyStructure[] = [
             content: "(a) Response Procedures:\n    • Immediate reporting of security incidents\n    • Incident classification and escalation\n    • Documentation requirements\n    • Post-incident analysis\n(b) Business Continuity:\n    • Regular backup procedures\n    • Disaster recovery testing\n    • Alternative processing facilities\n    • Emergency communication plans"
           }
         ]
+      },
+      {
+        title: "Section-3: DATA CLASSIFICATION AND HANDLING",
+        clauses: [
+          {
+            title: "Clause-1: DATA CLASSIFICATION LEVELS",
+            content: "Data classified into: Public, Internal, Confidential, and Restricted. Each level has specific handling, storage, and transmission requirements. Classification based on sensitivity and potential impact of unauthorized disclosure."
+          },
+          {
+            title: "Clause-2: ENCRYPTION STANDARDS",
+            content: "All confidential and restricted data must be encrypted in transit and at rest. Minimum encryption standards: AES-256 for data at rest, TLS 1.2 or higher for data in transit. Regular encryption key rotation required."
+          }
+        ]
       }
     ]
   },
@@ -178,8 +227,82 @@ export const StandardPolicies: PolicyStructure[] = [
             content: "(a) Purchase Authorization:\n    • Approval thresholds\n    • Required documentation\n    • Vendor selection criteria\n    • Competitive bidding requirements\n(b) Vendor Management:\n    • Vendor evaluation process\n    • Performance monitoring\n    • Contract review procedures\n    • Risk assessment requirements"
           }
         ]
+      },
+      {
+        title: "Section-3: BUSINESS CONTINUITY",
+        clauses: [
+          {
+            title: "Clause-1: DISASTER RECOVERY",
+            content: "Comprehensive disaster recovery plans for critical business functions. Regular testing and updates required. Maximum recovery time objectives (RTO) defined for each system. Backup systems and redundant infrastructure maintained."
+          },
+          {
+            title: "Clause-2: CRISIS MANAGEMENT",
+            content: "Crisis management team structure and responsibilities defined. Communication protocols established. Regular crisis simulation exercises conducted. Incident response procedures documented and tested."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    domain: "Domain-6: Finance & Accounting Policies",
+    sections: [
+      {
+        title: "Section-1: FINANCIAL CONTROLS",
+        clauses: [
+          {
+            title: "Clause-1: APPROVAL AUTHORITY",
+            content: "Defined approval limits for financial transactions. Dual control principle for high-value transactions. Segregation of duties between transaction initiation, approval, and recording. Regular review of authority matrix."
+          },
+          {
+            title: "Clause-2: EXPENSE MANAGEMENT",
+            content: "Clear guidelines for business expenses. Required documentation and approval workflows. Corporate credit card usage rules. Monthly reconciliation and audit procedures."
+          }
+        ]
+      },
+      {
+        title: "Section-2: FINANCIAL REPORTING",
+        clauses: [
+          {
+            title: "Clause-1: REPORTING STANDARDS",
+            content: "Adherence to applicable accounting standards (GAAP/IFRS). Monthly, quarterly, and annual reporting cycles. Internal control framework for financial reporting. Independent audit requirements."
+          },
+          {
+            title: "Clause-2: TAX COMPLIANCE",
+            content: "Tax planning and compliance procedures. Documentation requirements for tax positions. Transfer pricing policies. Regular tax risk assessment and mitigation."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    domain: "Domain-7: Environmental, Health & Safety Policies",
+    sections: [
+      {
+        title: "Section-1: WORKPLACE SAFETY",
+        clauses: [
+          {
+            title: "Clause-1: SAFETY STANDARDS",
+            content: "Mandatory safety training for all employees. Personal protective equipment requirements. Incident reporting procedures. Regular safety audits and inspections."
+          },
+          {
+            title: "Clause-2: EMERGENCY RESPONSE",
+            content: "Emergency evacuation procedures. First aid and medical emergency protocols. Fire safety requirements. Regular emergency drills and training."
+          }
+        ]
+      },
+      {
+        title: "Section-2: ENVIRONMENTAL MANAGEMENT",
+        clauses: [
+          {
+            title: "Clause-1: ENVIRONMENTAL IMPACT",
+            content: "Environmental impact assessment procedures. Waste management and recycling programs. Energy efficiency initiatives. Carbon footprint reduction targets."
+          },
+          {
+            title: "Clause-2: COMPLIANCE",
+            content: "Environmental compliance monitoring. Required permits and licenses. Regular environmental audits. Reporting of environmental incidents."
+          }
+        ]
       }
     ]
   }
 ];
-

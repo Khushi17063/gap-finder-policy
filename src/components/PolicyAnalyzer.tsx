@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -49,20 +48,19 @@ const PolicyAnalyzer: React.FC = () => {
     }
   };
 
-  // This is a simulation function that would be replaced with actual NLP analysis
   const simulateAnalysis = (document: string) => {
-    // Extract some sample domains to simulate parsing
-    const domains = ["Legal & Compliance", "Human Resources", "Technology & Security"];
+    // Extract domains from standard policies for simulation
+    const domains = StandardPolicies.map(policy => policy.domain.split(":")[1].trim());
     
-    // Simulate similarity scores
-    const similarityScores = domains.map(domain => ({
-      domain,
+    // Simulate similarity scores with more realistic data
+    const similarityScores = StandardPolicies.map(policy => ({
+      domain: policy.domain.split(":")[1].trim(),
       score: Math.random() * 0.5 + 0.4, // Score between 0.4 and 0.9
-      sections: Array(3).fill(0).map((_, i) => ({
-        section: `Section ${i + 1}`,
+      sections: policy.sections.map(section => ({
+        section: section.title,
         score: Math.random() * 0.5 + 0.3,
-        clauses: Array(2).fill(0).map((_, j) => ({
-          clause: `Clause ${j + 1}`,
+        clauses: section.clauses.map(clause => ({
+          clause: clause.title,
           score: Math.random() * 0.6 + 0.2
         }))
       }))
@@ -82,21 +80,40 @@ const PolicyAnalyzer: React.FC = () => {
         }))
     );
     
-    // Generate recommendations
-    const recommendations = gaps.map(gap => ({
-      domain: gap.domain,
-      section: gap.section,
-      recommendations: gap.missingClauses.map(clause => ({
-        clause,
-        recommendation: `Consider adding language about ${clause.toLowerCase()} to strengthen your ${gap.section.toLowerCase()} policy.`
-      }))
-    }));
+    // Generate detailed recommendations based on standard policies
+    const recommendations = gaps.map(gap => {
+      const standardDomain = StandardPolicies.find(
+        d => d.domain.includes(gap.domain)
+      );
+      const standardSection = standardDomain?.sections.find(
+        s => s.title === gap.section
+      );
+      
+      return {
+        domain: gap.domain,
+        section: gap.section,
+        recommendations: gap.missingClauses.map(clauseTitle => {
+          const standardClause = standardSection?.clauses.find(
+            c => c.title === clauseTitle
+          );
+          
+          return {
+            clause: clauseTitle,
+            recommendation: standardClause ? 
+              `Consider adding the following content to align with standard policies: ${standardClause.content}` :
+              `This clause is missing from your policy. Consider adding content that addresses ${clauseTitle.toLowerCase()}.`
+          };
+        })
+      };
+    });
     
     return {
       documentName,
       parsed: {
         domains,
-        sections: domains.flatMap(d => Array(3).fill(0).map((_, i) => `${d} - Section ${i + 1}`)),
+        sections: domains.flatMap(d => 
+          StandardPolicies.find(p => p.domain.includes(d))?.sections.map(s => `${d} - ${s.title}`) || []
+        ),
       },
       similarity: similarityScores,
       gaps,
