@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
+    "@huggingface/transformers": "file:latest@huggingface/inference@latestreact-dropzone@latestpdfjs-dist@latestmammoth@latestreact-pdf@latesttailwindcss-animate@latestrecharts@latesttesseract.js@latest",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-alert-dialog": "^1.1.1",
     "@radix-ui/react-aspect-ratio": "^1.1.0",
