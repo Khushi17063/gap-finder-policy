@@ -2,6 +2,8 @@
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import { Button } from "@/components/ui/button";
+import { Download } from "lucide-react";
 import { 
   BarChart, 
   Bar, 
@@ -41,21 +43,68 @@ const getScoreLabel = (score: number) => {
 };
 
 const barColors = {
-  high: "#22c55e", // green
-  medium: "#eab308", // yellow
-  low: "#ef4444", // red
+  high: "#22c55e",
+  medium: "#eab308",
+  low: "#ef4444",
 };
 
 const SimilarityAnalysis: React.FC<SimilarityProps> = ({ results }) => {
-  // Prepare data for the chart
   const chartData = results.map(item => ({
     name: item.domain,
     score: Math.round(item.score * 100),
     color: item.score >= 0.8 ? barColors.high : item.score >= 0.6 ? barColors.medium : barColors.low
   }));
 
+  const downloadAnalysisReport = () => {
+    let report = "Policy Analysis Report\n\n";
+    report += "Date: " + new Date().toLocaleDateString() + "\n\n";
+
+    report += "Overall Domain Analysis\n";
+    report += "====================\n\n";
+
+    results.forEach(domain => {
+      report += `Domain: ${domain.domain}\n`;
+      report += `Overall Score: ${Math.round(domain.score * 100)}%\n`;
+      report += `Status: ${getScoreLabel(domain.score)}\n\n`;
+
+      report += "Sections Analysis:\n";
+      domain.sections.forEach(section => {
+        report += `\n- ${section.section}\n`;
+        report += `  Score: ${Math.round(section.score * 100)}%\n`;
+        report += "  Clauses:\n";
+        
+        section.clauses.forEach(clause => {
+          report += `    • ${clause.clause}: ${Math.round(clause.score * 100)}%\n`;
+        });
+      });
+      report += "\n-------------------\n\n";
+    });
+
+    const blob = new Blob([report], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'policy-analysis-report.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className="space-y-8">
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-xl font-semibold">Domain Analysis Overview</h2>
+        <Button 
+          onClick={downloadAnalysisReport}
+          variant="outline"
+          className="flex items-center gap-2"
+        >
+          <Download className="h-4 w-4" />
+          Download Analysis Report
+        </Button>
+      </div>
+
       <Card>
         <CardHeader>
           <CardTitle>Policy Similarity Analysis</CardTitle>
@@ -72,11 +121,17 @@ const SimilarityAnalysis: React.FC<SimilarityProps> = ({ results }) => {
                   top: 5,
                   right: 30,
                   left: 20,
-                  bottom: 5,
+                  bottom: 100
                 }}
               >
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
+                <XAxis 
+                  dataKey="name" 
+                  angle={-45}
+                  textAnchor="end"
+                  interval={0}
+                  height={80}
+                />
                 <YAxis domain={[0, 100]} />
                 <Tooltip 
                   formatter={(value) => [`${value}%`, 'Similarity']}
