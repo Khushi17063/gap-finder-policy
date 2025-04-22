@@ -1,73 +1,85 @@
-# Welcome to your Lovable project
 
-## Project info
+# Policy Gap Finder 🔍📄
 
-**URL**: https://lovable.dev/projects/628cacc9-53e9-41f4-8d7d-95f080a96cba
+## Overview
 
-## How can I edit this code?
+Policy Gap Finder is an advanced web application that uses Natural Language Processing (NLP) to analyze and compare company policy documents against standard industry policies. The application helps organizations identify potential gaps, ensure compliance, and improve their policy documentation.
 
-There are several ways of editing your application.
+## Key Features
 
-**Use Lovable**
+### 1. Document Upload
+- Easily upload policy documents in various text formats
+- Seamless document processing and text extraction
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/628cacc9-53e9-41f4-8d7d-95f080a96cba) and start prompting.
+### 2. Comprehensive Policy Analysis
+- Advanced similarity scoring across multiple policy domains
+- Detailed breakdown of policy sections and clauses
+- Visual representation of compliance levels
 
-Changes made via Lovable will be committed automatically to this repo.
+### 3. Gap Identification
+- Automatically detect missing or incomplete policy sections
+- Highlight areas that don't align with standard industry policies
+- Provide actionable recommendations for policy improvement
 
-**Use your preferred IDE**
+### 4. Detailed Reporting
+- Generate downloadable analysis reports
+- Visualize policy compliance through interactive charts
+- Scores and insights for each policy domain and section
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Technologies Used
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- Shadcn UI
+- Recharts (for data visualization)
+- Natural Language Processing techniques
 
-Follow these steps:
+## Getting Started
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Prerequisites
+- Node.js (v18 or later)
+- npm or yarn
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Installation
+```bash
+# Clone the repository
+git clone https://your-repo-url.git
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Navigate to project directory
+cd policy-gap-finder
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Usage
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+1. Upload your policy document
+2. Wait for automatic analysis
+3. Review detailed insights and recommendations
+4. Download comprehensive analysis report
 
-**Use GitHub Codespaces**
+## Deployment
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+The application can be deployed on platforms like Render:
+- Build Command: `npm run build`
+- Start Command: `npm run preview`
 
-## What technologies are used for this project?
+## Contributing
 
-This project is built with:
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## License
 
-## How can I deploy this project?
+[Choose an appropriate license]
 
-Simply open [Lovable](https://lovable.dev/projects/628cacc9-53e9-41f4-8d7d-95f080a96cba) and click on Share -> Publish.
+## Contact
 
-## Can I connect a custom domain to my Lovable project?
+[Your contact information or organization details]
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Powered by advanced NLP technology 🚀
