@@ -74,12 +74,4 @@ The application can be deployed on platforms like Render:
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## License
 
-[Choose an appropriate license]
-
-## Contact
-
-[Your contact information or organization details]
-
-Powered by advanced NLP technology 🚀
